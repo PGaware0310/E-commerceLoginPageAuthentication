@@ -1,4 +1,4 @@
-
+import {FaYoutubeSquare,FaFacebook,FaSpotify} from 'react-icons/fa';
 const Footer = () => {
   return (
     <section className="p-4"
@@ -12,17 +12,16 @@ const Footer = () => {
         The Generics
         
       </h1>
-    
-      <a className="p-2" href="https://www.spotify.com" target="_blank">Spotify
-          <i  className="fa fa-facebook"></i>
-        </a>
-      <a className="p-2" href="https://www.facebook.com" target="_blank">Facebook
-          <i  className="fa fa-facebook"></i>
-        </a>
-       
-      <a className="p-2" href="https://www.youtube.com" target="_blank">YouTube
-          <i  className="fa fa-facebook"></i>
+      <a className="p-2" href="https://www.youtube.com" target="_blank">
+      <FaYoutubeSquare style={{color:"rgb(224, 48, 17)",fontSize:"2rem"}}/> 
         </a> 
+      <a className="p-2" href="https://www.spotify.com" target="_blank">
+<FaSpotify style={{color:"rgb(0, 150, 115)",fontSize:"2rem"}}/>
+        </a>
+      <a className="p-2" href="https://www.facebook.com" target="_blank">
+      <FaFacebook style={{color:'blue',fontSize:"2rem"}}/>
+        </a>
+      
      </section>
   );
 };

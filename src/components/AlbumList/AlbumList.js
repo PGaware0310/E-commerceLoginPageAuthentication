@@ -1,6 +1,6 @@
 import { Container, Image, Row, Col, Button } from "react-bootstrap";
 
-const AlbumList = () => {
+const AlbumList = (props) => {
   return (
     <>
       <Container>
@@ -23,7 +23,7 @@ const AlbumList = () => {
               thumbnail
             />
             <div className="p-4 text-center">
-              100<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
+              Rs.100<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
             </div>
           </Col>
           <Col className="p-4 text-center">
@@ -34,7 +34,7 @@ const AlbumList = () => {
                thumbnail
             />
             <div className="p-4 text-center">
-              50<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
+              Rs.50<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
             </div>
           </Col>
         </Row>
@@ -47,7 +47,7 @@ const AlbumList = () => {
                thumbnail
             />
             <div className="p-4 text-center">
-              70<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
+              Rs.70<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
             </div>
           </Col>
           <Col className="p-4 text-center">
@@ -58,13 +58,13 @@ const AlbumList = () => {
               thumbnail
             />
             <div className="p-4 text-center">
-              100<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
+              Rs.100<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
             </div>
           </Col>
         </Row>
       </Container>
       <Col className="text-center p-3 mb-2">
-        <Button style={{background:"gray",color:"hsl(175, 76%, 50%)",fontWeight:"bold"}}>See The Cart</Button>
+        <Button style={{background:"gray",color:"hsl(175, 76%, 50%)",fontWeight:"bold"}} >See The Cart</Button>
       </Col>
     </>
   );

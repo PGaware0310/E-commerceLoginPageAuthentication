@@ -1,5 +1,8 @@
-import { Navbar,Container,Nav,Button } from "react-bootstrap";
-const NavBar=()=>{
+import Cart from "../Cart/Cart";
+import { Navbar,Container,Nav } from "react-bootstrap";
+import { useState } from "react";
+const NavBar=(props)=>{
+  const [showCart, setShowCart] = useState(false);
     return(
         <>
             <Navbar bg="dark" expand="sm" variant="dark" sticky="top">
@@ -9,7 +12,7 @@ const NavBar=()=>{
             <Nav.Link className='m-2' href="#store">STORE</Nav.Link>
             <Nav.Link className='m-2' href="#about">ABOUT</Nav.Link>
           </Nav>
-          <Button className='bg-dark' style={{border:"1px solid hsl(175, 76%, 50%)"}}>Cart0</Button>
+          <Cart />
         </Container>
       </Navbar>
         </>
