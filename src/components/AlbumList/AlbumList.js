@@ -1,6 +1,36 @@
+import { useContext} from "react";
 import { Container, Image, Row, Col, Button } from "react-bootstrap";
-
+import CartContext from "../../store/cart-context";
+const itemLists=[
+  {
+    title:"Colors",
+    imageUrl:"https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+    price:100,
+  },
+  {
+    title:"Black and white Colors",
+    imageUrl:"https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+    price:50,
+  },
+  {
+    title:"Yellow and Black Colors",
+    imageUrl:"https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+    price:70,
+  },
+  {
+    title:"Blue Color",
+    imageUrl:"https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+    price:100,
+  }
+]
 const AlbumList = (props) => {
+
+  const cartCnt=useContext(CartContext);
+
+  const addToCartHandler = (item) => {
+    cartCnt.addItems(item);
+  };
+
   return (
     <>
       <Container>
@@ -14,58 +44,26 @@ const AlbumList = (props) => {
             </h2>
           </Row>
         </Col>
-        <Row>
-          <Col className="p-4 text-center">
-            <h5>Colors</h5>
+        <Row>{ itemLists.map((item,index)=>(
+          <Col key={index} className="p-4 text-center">
+            <h5>{item.title}</h5>
             <Image
               className="p-4 text-center"
-              src="https://prasadyash2411.github.io/ecom-website/img/Album%201.png"
+              src={item.imageUrl}
               thumbnail
             />
             <div className="p-4 text-center">
-              Rs.100<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
+             Rs.{item.price} <Button style={{background:"hsl(175, 76%, 50%)"}} onClick={() => addToCartHandler(item)}>ADD TO CART</Button>
             </div>
           </Col>
-          <Col className="p-4 text-center">
-            <h5>Black and white Colors</h5>
-            <Image
-              className="p-4 text-center"
-              src="https://prasadyash2411.github.io/ecom-website/img/Album%202.png"
-               thumbnail
-            />
-            <div className="p-4 text-center">
-              Rs.50<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col className="p-4 text-center">
-            <h5>Yellow and Black Colors</h5>
-            <Image
-              className="p-4 text-center"
-              src="https://prasadyash2411.github.io/ecom-website/img/Album%203.png"
-               thumbnail
-            />
-            <div className="p-4 text-center">
-              Rs.70<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
-            </div>
-          </Col>
-          <Col className="p-4 text-center">
-            <h5>Blue Color</h5>
-            <Image
-              className="p-4 text-center"
-              src="https://prasadyash2411.github.io/ecom-website/img/Album%204.png"
-              thumbnail
-            />
-            <div className="p-4 text-center">
-              Rs.100<Button style={{background:"hsl(175, 76%, 50%)"}}>ADD TO CART</Button>
-            </div>
-          </Col>
+          ))}
         </Row>
       </Container>
       <Col className="text-center p-3 mb-2">
         <Button style={{background:"gray",color:"hsl(175, 76%, 50%)",fontWeight:"bold"}} >See The Cart</Button>
-      </Col>
+  </Col>
+  
+
     </>
   );
 };

@@ -1,19 +1,18 @@
 import  Header  from './components/Header/Header';
 import './App.css';
 import AlbumList from './components/AlbumList/AlbumList';
-import NavBar from './components/Header/NavBar';
 import Footer from './components/Header/Footer';
+import CartProvider from './store/CartProvider';
+
 const App=()=> {
 
-
   return (
-    <>
-   <NavBar/>
+    <CartProvider>
       <Header/>
       <AlbumList/>
       <Footer/>
       
-      </>
+      </CartProvider>
   );
 }
 

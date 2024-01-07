@@ -1,4 +1,5 @@
 import {FaYoutubeSquare,FaFacebook,FaSpotify} from 'react-icons/fa';
+
 const Footer = () => {
   return (
     <section className="p-4"

@@ -1,69 +1,39 @@
 import { Button, Row, Col } from "react-bootstrap";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import { useState } from "react";
-const cartElements = [
-  {
-    title: "Colors",
-    price: 100,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    quantity: 2,
-  },
-  {
-    title: "Black and white Colors",
-    price: 50,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    quantity: 3,
-  },
-  {
-    title: "Yellow and Black Colors",
-    price: 70,
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    quantity: 1,
-  },
-];
+import { useContext } from "react";
+import CartContext from "../../store/cart-context";
 
 const Cart = () => {
-  const [show, setShow] = useState(false);
+  const crtCnt = useContext(CartContext);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleQuantityChange = (e, index) => {
+    const newQuantity = parseInt(e.target.value); // Parse the input value into an integer
+    if (!isNaN(newQuantity) && newQuantity >= 0) {
+      crtCnt.updateQuantity(index, newQuantity); // Update the quantity using the context function
+    }
+  };
 
-  return (
-    <>
-      <Button
-        className="bg-dark"
-        style={{ border: "1px solid hsl(175, 76%, 50%)" }}
-        onClick={handleShow}
-      >
-        Cart0
-      </Button>
-      <Offcanvas show={show} onHide={handleClose} placement="end">
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title><h3 className="text-center" style={{fontFamily:"cursive"}}>CART</h3>
+  const handleInputFocus = (e) => {
+    e.target.value = ""; // Clear the input value on focus
+  };
 
-        <Row>
-          <Col>Item</Col>
-          <Col>Price(Rs.)</Col>
-          <Col>Quantity</Col>
-          </Row>
-        <Row>
-         {cartElements.map((items,index)=>(
-           
-                <Row key={index}>
-                <Col>{items.title}</Col>
-                <Col>{items.price}</Col>
-                <Col>{items.quantity}</Col>
-                <Button style={{background:"gray"}}>RemoveItem</Button>
-                </Row>
-           ))}
-           </Row>
-           <Button className="p-2 mt-5" style={{marginLeft:"40%",background:"hsl(175, 60%, 25%)"}}>PURCHASE</Button>
-          </Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body></Offcanvas.Body>
-      </Offcanvas>
-    </>
-  );
+  const cartItems = crtCnt.items.map((item, index) => (
+    <Row key={index} className="p-3">
+      <Col>{item.title}</Col>
+      <Col>{item.price}</Col>
+      <Col>
+        <input
+          type="text"
+          style={{ width: "3rem" }}
+          value={item.quantity}
+          onChange={(e) => handleQuantityChange(e, index)}
+          onFocus={handleInputFocus}
+        />
+      </Col>
+      <Button style={{ background: "gray" }}>Remove</Button>
+    </Row>
+  ));
+
+  return <>{cartItems}</>;
 };
 
 export default Cart;
