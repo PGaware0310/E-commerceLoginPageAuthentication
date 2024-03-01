@@ -1,6 +1,8 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import NavBarCartButton from "./NavBarCartButton";
 import React from "react";
+import { NavLink ,Link} from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -8,15 +10,15 @@ const Header = () => {
       <Navbar bg="dark" expand="sm" variant="dark" sticky="top">
         <Container>
           <Nav>
-            <Nav.Link className="m-2" href="#home">
+            <NavLink  className="m-2" to="/" style={{textDecoration:"none",color:"white"}} end>
               HOME
-            </Nav.Link>
-            <Nav.Link className="m-2" href="#store">
+              </NavLink>
+            <NavLink  className="m-2" to="/store" style={{textDecoration:"none",color:"white"}} end>
               STORE
-            </Nav.Link>
-            <Nav.Link className="m-2" href="#about">
+           </NavLink>
+            <NavLink  className="m-2" to="/about" style={{textDecoration:"none",color:"white"}} end> 
               ABOUT
-            </Nav.Link>
+            </NavLink>
           </Nav>
           <NavBarCartButton />
         </Container>
@@ -27,6 +29,7 @@ const Header = () => {
       >
         The Generics
       </h1>
+
     </>
   );
 };

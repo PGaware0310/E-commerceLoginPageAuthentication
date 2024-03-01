@@ -23,6 +23,9 @@ const NavBarCartButton=(props)=>{
     return total + item.price * item.quantity;
   }, 0);
 
+  const setPurchase=()=>{
+    crtCnt.purchaseItem();
+  }
     return(
         <>
         
@@ -37,7 +40,7 @@ const NavBarCartButton=(props)=>{
             <h3 className="text-center" style={{ fontFamily: "cursive" }}>
               CART
             </h3>
-            <Row>
+            <Row style={{ borderBottomStyle:"solid", borderWidth:"1px"}}>
               <Col>Item</Col>
               <Col>Price(Rs.)</Col>
               <Col>Quantity</Col>
@@ -53,6 +56,7 @@ const NavBarCartButton=(props)=>{
             <Button
               className="p-2 mt-5"
               style={{ marginLeft: "40%", background: "hsl(175, 60%, 25%)" }}
+              onClick={setPurchase}
             >
               PURCHASE
             </Button>
@@ -62,6 +66,7 @@ const NavBarCartButton=(props)=>{
       </Offcanvas>
         </>
     );
+    
 };
 
 export default NavBarCartButton;

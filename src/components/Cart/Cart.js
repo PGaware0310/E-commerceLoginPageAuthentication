@@ -18,9 +18,18 @@ const Cart = () => {
 
   const cartItems = crtCnt.items.map((item, index) => (
     <Row key={index} className="p-3">
-      <Col>{item.title}</Col>
+      <Col><Row>
+        <img
+          src={item.imageUrl}
+          alt={item.title}
+          className="rounded-3"
+          style={{ width: "65px"}}
+        ></img>
+        <Col>{item.title}</Col></Row>
+      </Col>
+      {/* <Col></Col> */}
       <Col>{item.price}</Col>
-      <Col>
+      <Col><Row md={2}>
         <input
           type="text"
           style={{ width: "3rem" }}
@@ -28,8 +37,10 @@ const Cart = () => {
           onChange={(e) => handleQuantityChange(e, index)}
           onFocus={handleInputFocus}
         />
+        <Col>
+          <Button style={{ background: "gray" }}>Remove</Button>
+        </Col></Row>
       </Col>
-      <Button style={{ background: "gray" }}>Remove</Button>
     </Row>
   ));
 

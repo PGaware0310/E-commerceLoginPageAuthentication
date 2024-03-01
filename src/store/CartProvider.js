@@ -14,6 +14,7 @@ const CartProvider = (props) => {
       ...prevCartItems,
       { ...item, quantity: 1 },
     ]);
+    console.log(`your product ${item.title} is added to cart`);
   }
         
   };
@@ -28,11 +29,15 @@ const CartProvider = (props) => {
     setCartItems(updatedItems);
   };
 
+  const purchaseItem=()=>{
+setCartItems([]);    
+  }
    const cartContext = {
     items: cartItems,
     addItems: addToCart,
     // removeItems:removeItemToCart,
     updateQuantity: updateQuantity,
+    purchaseItem:purchaseItem,
   };
 return(
     <CartContext.Provider value={cartContext}>

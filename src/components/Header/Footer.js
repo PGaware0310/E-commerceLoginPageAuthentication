@@ -14,13 +14,13 @@ const Footer = () => {
         
       </h1>
       <a className="p-2" href="https://www.youtube.com" target="_blank">
-      <FaYoutubeSquare style={{color:"rgb(224, 48, 17)",fontSize:"2rem"}}/> 
+      <FaYoutubeSquare style={{color:"rgb(224, 48, 17)",fontSize:"1.5rem",background:"white"}}/> 
         </a> 
       <a className="p-2" href="https://www.spotify.com" target="_blank">
-<FaSpotify style={{color:"rgb(0, 150, 115)",fontSize:"2rem"}}/>
+<FaSpotify style={{color:"rgb(0, 150, 115)",fontSize:"1.5rem",background:"white"}}/>
         </a>
       <a className="p-2" href="https://www.facebook.com" target="_blank">
-      <FaFacebook style={{color:'blue',fontSize:"2rem"}}/>
+      <FaFacebook style={{color:'blue',fontSize:"1.5rem",background:"white"}}/>
         </a>
       
      </section>
