@@ -55,7 +55,7 @@ const NavBarCartButton=(props)=>{
             </Row>
             <Button
               className="p-2 mt-5"
-              style={{ marginLeft: "40%", background: "hsl(175, 60%, 25%)" }}
+              style={{ marginLeft: "40%", background: "hsl(175, 76%, 50%)",border:"none",fontWeight:"bold" }}
               onClick={setPurchase}
             >
               PURCHASE

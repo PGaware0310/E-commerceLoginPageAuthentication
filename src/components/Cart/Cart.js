@@ -38,7 +38,7 @@ const Cart = () => {
           onFocus={handleInputFocus}
         />
         <Col>
-          <Button style={{ background: "gray" }}>Remove</Button>
+          <Button style={{ background: "#f83737",border:"none" }}>Remove</Button>
         </Col></Row>
       </Col>
     </Row>

@@ -1,12 +1,14 @@
 import { Container } from "react-bootstrap";
 import Footer from "../Header/Footer";
-import Header from "../Header/Header";
 import { Image, Row, Col } from "react-bootstrap";
+import NavBarr from "../../Navigation/NavBarr";
+import Generics from "../Header/Generics";
 
 const AboutUs = (props) => {
   return (
     <>
-      <Header />
+      <NavBarr/>
+      <Generics/>
       <h1
         className="text-center mb-4"
         style={{

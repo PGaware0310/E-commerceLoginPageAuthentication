@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import Header from "../Header/Header";
 import Footer from "../Header/Footer";
 import { Container, Image, Row, Col, Button } from "react-bootstrap";
 import CartContext from "../../store/cart-context";
+import NavBarr from "../../Navigation/NavBarr";
+import Generics from "../Header/Generics";
 const itemLists = [
   {
     title: "Colors",
@@ -34,13 +35,14 @@ const AlbumList = (props) => {
 
   return (
     <>
-      <Header />
+    <NavBarr/>
+    <Generics/>
       <Container>
         <Col>
           <Row>
             <h2
-              className="text-center"
-              style={{ fontFamily: "-moz-initial", fontWeight: "bold" }}
+              className="text-center p-4"
+              style={{ fontFamily: "-moz-initial", fontWeight: "bold"}}
             >
               Music
             </h2>
@@ -51,11 +53,11 @@ const AlbumList = (props) => {
             <Col key={index} className="p-4 text-center" md={6}>
               <h5>{item.title}</h5>
               <br />
-              <Image className="text-center" src={item.imageUrl} thumbnail />
+              <Image className="text-center" src={item.imageUrl} thumbnail style={{border:"none",width:"50%"}}/>
               <div className="p-4">
                 Rs.{item.price}
                 <Button
-                  style={{ background: "hsl(175, 76%, 50%)" }}
+                  style={{ background: "hsl(175, 76%, 50%)",border:"none",fontWeight:"bold"}}
                   onClick={() => addToCartHandler(item)}
                 >
                   ADD TO CART
@@ -71,6 +73,7 @@ const AlbumList = (props) => {
             background: "gray",
             color: "hsl(175, 76%, 50%)",
             fontWeight: "bold",
+            border:"none"
           }}
         >
           See The Cart
