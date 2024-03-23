@@ -16,6 +16,9 @@ const NavBarr=()=>{
             <NavLink  className="m-3" to="/about" style={{textDecoration:"none",color:"white"}} end> 
               ABOUT
             </NavLink>
+            <NavLink  className="m-3" to="/contactus" style={{textDecoration:"none",color:"white"}} end> 
+            CONTACT US
+            </NavLink>
           </Nav>
           <NavBarCartButton/>
         </Container>
