@@ -4,28 +4,9 @@ import { Container, Image, Row, Col, Button } from "react-bootstrap";
 import CartContext from "../../store/cart-context";
 import NavBarr from "../../Navigation/NavBarr";
 import Generics from "../Header/Generics";
-const itemLists = [
-  {
-    title: "Colors",
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-    price: 100,
-  },
-  {
-    title: "Black and white Colors",
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-    price: 50,
-  },
-  {
-    title: "Yellow and Black Colors",
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-    price: 70,
-  },
-  {
-    title: "Blue Color",
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
-    price: 100,
-  },
-];
+import { itemLists } from "./Albums";
+import { Link } from "react-router-dom";
+
 const AlbumList = (props) => {
   const cartCnt = useContext(CartContext);
 
@@ -35,14 +16,14 @@ const AlbumList = (props) => {
 
   return (
     <>
-    <NavBarr/>
-    <Generics/>
+      <NavBarr />
+      <Generics />
       <Container>
         <Col>
           <Row>
             <h2
               className="text-center p-4"
-              style={{ fontFamily: "-moz-initial", fontWeight: "bold"}}
+              style={{ fontFamily: "-moz-initial", fontWeight: "bold" }}
             >
               Music
             </h2>
@@ -53,11 +34,23 @@ const AlbumList = (props) => {
             <Col key={index} className="p-4 text-center" md={6}>
               <h5>{item.title}</h5>
               <br />
-              <Image className="text-center" src={item.imageUrl} thumbnail style={{border:"none",width:"50%"}}/>
+              <Link to={`/store/${item.id}`}>
+                <Image
+                  className="text-center"
+                  src={item.imageUrl}
+                  thumbnail
+                  style={{ border: "none", width: "50%" }}
+                />
+             </Link>
               <div className="p-4">
                 Rs.{item.price}
                 <Button
-                  style={{ background: "hsl(175, 76%, 50%)",border:"none",fontWeight:"bold"}}
+                  style={{
+                    background: "hsl(175, 76%, 50%)",
+                    border: "none",
+                    fontWeight: "bold",
+                     boxShadow: "0 0 50px rgb(189, 147, 231)"
+                  }}
                   onClick={() => addToCartHandler(item)}
                 >
                   ADD TO CART
@@ -73,7 +66,8 @@ const AlbumList = (props) => {
             background: "gray",
             color: "hsl(175, 76%, 50%)",
             fontWeight: "bold",
-            border:"none"
+            border: "none",
+            boxShadow: "0 0 50px rgb(189, 147, 231)"
           }}
         >
           See The Cart
