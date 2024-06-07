@@ -5,11 +5,13 @@ import CartContext from "../../store/cart-context";
 import NavBarr from "../../Navigation/NavBarr";
 import Generics from "../Header/Generics";
 import { itemLists } from "./Albums";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const AlbumList = (props) => {
+  
   const cartCnt = useContext(CartContext);
 
+ 
   const addToCartHandler = (item) => {
     cartCnt.addItems(item);
   };

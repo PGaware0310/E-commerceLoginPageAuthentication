@@ -6,6 +6,7 @@ import CartProvider from "./store/CartProvider";
 import AboutUs from "./components/About/AboutUs";
 import ContactUs from "./components/Contact/ContactUs";
 import AlbumDetails from "./components/AlbumList/AlbumDetails";
+import Login from "./components/Login/Login";
 
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
         <Routes>
           <Route path="/" exact element={<Header />}/>
           <Route path="/about"  element={<AboutUs />}/>
-          <Route path="/store"  element={<AlbumList />}/>
+          <Route path="/login"  element={<Login />}/>
+          <Route path="/store" exact element={<AlbumList />}/>
           <Route path="/contactus"  element={<ContactUs/>}/>
           <Route path="/store/:productId"  element={<AlbumDetails/>}/>
           </Routes>

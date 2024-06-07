@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const ContactForm = (props) => {
   const [name, setName] = useState("");
@@ -86,18 +87,20 @@ const ContactForm = (props) => {
           paddingTop: "10px",
         }}
       >
-        <button
+        <Button
           style={{
             width: "25%",
             borderRadius: "12px",
             background: "hsl(175, 76%, 50%)",
+            color:"black",
             border: "none",
             fontWeight: "bold",
-            padding: "2px",
+            padding: "5px 0px",
+            marginTop:"4px"
           }}
           onClick={onContactUsHandle}>
           SUBMIT
-        </button>
+        </Button>
       </div>
     </form>
   );

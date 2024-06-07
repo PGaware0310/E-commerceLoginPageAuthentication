@@ -16,12 +16,14 @@ const AlbumDetails = () => {
           <Col>
             {product && product.images
               ? product.images.map((image, index) => (
-                  <Row><Image
-                    key={index}
-                    src={image}
-                    thumbnail
-                    style={{ border: "none", width: "30%", margin: "0.5rem" }}
-                  /></Row>
+                  <Row>
+                    <Image
+                      key={index}
+                      src={image}
+                      thumbnail
+                      style={{ border: "none", width: "30%", margin: "0.5rem" }}
+                    />
+                  </Row>
                 ))
               : "No images available"}
           </Col>
@@ -38,20 +40,19 @@ const AlbumDetails = () => {
                 background: "hsl(175, 76%, 50%)",
                 border: "none",
                 fontWeight: "bold",
-
                 boxShadow: "0 0 50px rgb(189, 147, 231)",
               }}
             >
               ADD TO CART
             </Button>
-                    <h3>Reviews</h3>
-                    <div>
-                        {product && product.reviews ? 
-                            product.reviews.map((review, index) => (
-                                <p key={index}>{review}</p>
-                            ))
-                        : 'No reviews available'}
-                    </div>            
+            <h3>Reviews</h3>
+            <div>
+              {product && product.reviews
+                ? product.reviews.map((review, index) => (
+                    <p key={index}>{review}</p>
+                  ))
+                : "No reviews available"}
+            </div>
           </Col>
         </Row>
       </Container>

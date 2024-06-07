@@ -2,6 +2,9 @@ import { useState } from "react";
 import CartContext from "./cart-context";
 
 const CartProvider = (props) => {
+  const initialToken = localStorage.getItem('token');
+  const [token, setToken] = useState(initialToken);
+
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item) => {
@@ -32,12 +35,29 @@ const CartProvider = (props) => {
   const purchaseItem=()=>{
 setCartItems([]);    
   }
+
+  const userIsLoggedIn = !!token;
+
+  const logoutHandler = () => {
+    setToken(null);
+    localStorage.removeItem('token');
+  }
+
+  const loginHandler = (token) => {
+    setToken(token);
+    localStorage.setItem('token', token);
+  }
+
    const cartContext = {
     items: cartItems,
     addItems: addToCart,
     // removeItems:removeItemToCart,
     updateQuantity: updateQuantity,
     purchaseItem:purchaseItem,
+    token: token,
+    isLoggedIn: userIsLoggedIn,
+    login: loginHandler,
+    logout: logoutHandler,
   };
 return(
     <CartContext.Provider value={cartContext}>
